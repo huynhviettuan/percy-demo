@@ -1,0 +1,21 @@
+{
+    "name": "percy-playwright",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "percy exec -- playwright test --project chromium"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@percy/cli": "^1.29.3",
+        "@percy/playwright": "^1.0.6",
+        "@playwright/test": "^1.46.1",
+        "@types/node": "^22.5.4"
+    },
+    "dependencies": {
+        "@percy/sdk-utils": "^1.29.3"
+    }
+}
