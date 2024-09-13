@@ -6,14 +6,7 @@ import { SignInPage } from "../src/sign-in";
 test("Percy", async ({ page }) => {
     await page.goto("http://localhost:3000/");
     await page.waitForLoadState();
-    await page
-        .locator('a[data-test="signup"]')
-        .evaluate((element) => element.remove());
     await percySnapshot(page, "Sign In Page");
-
-    // await percySnapshot(page, "Sign In Page", {
-    //     percyCSS: 'a[data-test="signup"] {  font-size: 20px; }',
-    // });
 
     const signInPage = new SignInPage(page);
     await signInPage.signIn(USERNAME);
