@@ -1,5 +1,7 @@
 const { percySnapshot } = require("@percy/playwright");
 import { test } from "@playwright/test";
+import { USERNAME } from "../src/constants";
+import { SignInPage } from "../src/sign-in";
 
 test("Percy", async ({ page }) => {
     await page.goto("http://localhost:3000/");
@@ -9,13 +11,10 @@ test("Percy", async ({ page }) => {
         percyCSS: 'a[data-test="signup"] {  font-size: 20px; }',
     });
 
-    // const signInPage = new SignInPage(page);
-    // await signInPage.signIn("tuan.hv1");
+    const signInPage = new SignInPage(page);
+    await signInPage.signIn(USERNAME);
 
-    // await percySnapshot(page, "Personal Page");
-    // const personalPage = new PersonalPage(page);
-    // await personalPage.goToMineTab();
-    // await percySnapshot(page, "Personal Mine Tab");
+    await percySnapshot(page, "Personal Page");
 });
 
 const removeUserNameTextBox = async (page) => {
