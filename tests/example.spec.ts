@@ -2,9 +2,11 @@ const { percySnapshot } = require("@percy/playwright");
 import { test } from "@playwright/test";
 
 test("Percy", async ({ page }) => {
-    await page.goto("http://localhost:3000/");
+    await page.goto("https://www.booking.com/");
     await page.waitForLoadState();
-    await percySnapshot(page, "Sign In Page", {
-        percyCSS: "div h1 {color:green;}",
-    });
+    await page.waitForSelector(
+        'div[data-testid="webcore-carousel-image-skeleton"]',
+        { state: "hidden" }
+    );
+    await percySnapshot(page, "Home Page");
 });
